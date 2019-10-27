@@ -1,0 +1,11 @@
+@mixin Display($J:space-between,$A:center) {
+  display: flex;
+  justify-content: $J;
+  align-items: $A;
+
+}
+
+%WH {
+  width: 100%;
+  height: 100%;
+}
