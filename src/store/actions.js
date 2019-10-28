@@ -27,11 +27,13 @@ export default {
       callback && callback()
     }
   },
-  async getNewsInfo ({commit},{id}){
+  async getNewsInfo ({commit},id,callback){
     const result = await reqNewInfo(id)
+    console.log(result)
     if (result.status === 0){
       const newsinfo = result.message
       commit (RECEIVE_NEWSINFO,{newsinfo})
+      callback && callback()
     }
   }
 }

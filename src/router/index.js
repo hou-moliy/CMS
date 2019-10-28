@@ -6,6 +6,8 @@ const MemmberContainer = () => import('../pages/Memmber/Memmber.vue')
 const ShopCarContainer = () => import('../pages/ShopCar/ShopCar.vue')
 const SearchContainer = () => import('../pages/Search/Search.vue')
 const NewListContainer = () => import('../pages/NewList/NewList.vue')
+const NewsInfoContainer = () => import('../pages/NewsInfo/NewsInfo.vue')
+
 Vue.use(Router)
 
 export default new Router({
@@ -33,6 +35,11 @@ export default new Router({
     {
       path: '/home/newlist',
       component: NewListContainer
+    },
+     {
+      path: '/home/newsinfo/:id',
+       name:'newsinfo',
+      component: NewsInfoContainer
     }
 
   ],

@@ -14,11 +14,11 @@ export default function ajax (url, data = {}, type = 'GET') {
       let dataStr = ''
       // 数 据 拼 接 字 符 串
       Object.keys(data).forEach(key => {
-        dataStr += key + '=' + data[key] + '&'
+        dataStr +=data[key] + '&'
       })
       if (dataStr !== '') {
         dataStr = dataStr.substring(0, dataStr.lastIndexOf('&'))
-        url = url + '?' + dataStr
+        url = url + '/' + dataStr
       }
       // 发 送 get 请 求
       // eslint-disable-next-line no-undef

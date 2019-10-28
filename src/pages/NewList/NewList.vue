@@ -12,7 +12,7 @@
     <!-- 新闻资讯列表-->
     <div class="new-list" ref="Warpper">
       <ul class="new-ul">
-        <li class="new-item"  @click="$router.push({path:'/home/newsinfo'+newObj.id})"
+        <li class="new-item"  @click="toNewsInfo(newObj.id)"
             v-for="(newObj,index) in NewList" :key="index">
           <img alt="" :src="newObj.img_url" class="new-img">
           <p class="new-right">
@@ -50,6 +50,11 @@
     computed: {
       ...mapState(['NewList'])
     },
+    methods:{
+      toNewsInfo(id){
+        this.$router.push({name:'newsinfo',params:{id:id}})
+      }
+    }
   }
 </script>
 <style lang="scss">
