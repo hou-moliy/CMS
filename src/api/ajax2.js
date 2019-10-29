@@ -4,7 +4,7 @@ ajax请求函数模块
 */
 import axios from 'axios'
 // eslint-disable-next-line no-undef
-export default function ajax (url, data = {}, type = 'GET') {
+export default function ajax2 (url, data = {}, type = 'GET') {
   return new Promise(function (resolve, reject) {
       // 执行异步的ajax请求
       // eslint-disable-next-line no-unused-vars
@@ -14,11 +14,32 @@ export default function ajax (url, data = {}, type = 'GET') {
         let dataStr = ''
         // 数 据 拼 接 字 符 串
         Object.keys(data).forEach(key => {
-          dataStr += data[key] + '&'
-          // dataStr +=data[key]  +'?pageIndex='
+          dataStr += data[key] + '&' + '?pageindex='
+          console.log(dataStr)
         })
+        // if (dataStr !== '') {
+        //   let dataStr1 = dataStr.substring(3, dataStr.lastIndexOf('&'))
+        //   console.log(dataStr1)//?pageindex=1
+        //   dataStr = dataStr.substring(0, dataStr.lastIndexOf('&'))
+        //   console.log(dataStr)//20&?pageindex=1
+        //   dataStr = dataStr.substring(0, dataStr.lastIndexOf('?'))
+        //   console.log(dataStr)//20&
+        //   dataStr = dataStr.substring(0, dataStr.lastIndexOf('&'))
+        //   console.log(dataStr)//20
+        //   dataStr=dataStr+dataStr1
+        //   url = url + '/' + dataStr
+        //   console.log(url)
+        //   //http://www.liulongbin.top:3005/api/getcomments/20?pageindex=1
+        // }
         if (dataStr !== '') {
+          //23
+          let dataStr2 = dataStr.substring(0, dataStr.indexOf('&'))
+          dataStr = dataStr.substring(3, dataStr.lastIndexOf('?'))
+          console.log(dataStr)
           dataStr = dataStr.substring(0, dataStr.lastIndexOf('&'))
+          console.log(dataStr)
+          dataStr = dataStr2 + dataStr
+          console.log(dataStr)
           url = url + '/' + dataStr
           console.log(url)
         }
